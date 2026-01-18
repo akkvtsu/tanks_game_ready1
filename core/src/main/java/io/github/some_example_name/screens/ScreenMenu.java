@@ -1,0 +1,71 @@
+package io.github.some_example_name.screens;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.utils.ScreenUtils;
+
+import io.github.some_example_name.Main;
+import io.github.some_example_name.GameResources;
+import io.github.some_example_name.components.ButtonView;
+import io.github.some_example_name.components.MovingBackgroundView;
+import io.github.some_example_name.components.TextView;
+
+public class ScreenMenu extends ScreenAdapter {
+    //classes
+    Main main;
+    MovingBackgroundView backgroundView;
+
+    //texts
+    TextView titleView;
+    //buttons
+    ButtonView startButtonView;
+    ButtonView settingsButtonView;
+    ButtonView exitButtonView;
+
+
+    public ScreenMenu(Main main){
+        this.main = main;
+        backgroundView = new MovingBackgroundView(GameResources.BACKGROUND_IMG_PATH );
+        titleView = new TextView(main.largeWhiteFont,550,500,"Tanks");
+        startButtonView = new ButtonView(420,346,440,70,main.commonBlackFont,GameResources.BUTTON_LONG_BG_IMG_PATH,"START");
+
+        settingsButtonView =  new ButtonView(420,251,440,70,main.commonBlackFont,GameResources.BUTTON_LONG_BG_IMG_PATH,"SETTINGS");
+        exitButtonView =  new ButtonView(420,156,440,70,main.commonBlackFont,GameResources.BUTTON_LONG_BG_IMG_PATH,"EXIT");
+
+
+    }
+    @Override
+    public void render(float delta){
+        handleInput();
+        main.camera.update();
+        main.batch.setProjectionMatrix(main.camera.combined);
+        ScreenUtils.clear(Color.CLEAR);
+        main.batch.begin();
+        backgroundView.draw(main.batch);
+//        backgroundView.move(); //поменять картинку
+        titleView.draw(main.batch);
+        startButtonView.draw(main.batch);
+        settingsButtonView.draw(main.batch);
+        exitButtonView.draw(main.batch);
+        main.batch.end();
+    }
+    private void handleInput()
+    {
+        if (Gdx.input.justTouched()) {
+            main.touch = main.camera.unproject(new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0));
+
+            if (startButtonView.isHit(main.touch.x, main.touch.y)) {
+                main.setScreen(main.gameScreen);
+            }
+            if (exitButtonView.isHit(main.touch.x, main.touch.y)) {
+                Gdx.app.exit();
+            }
+            if (settingsButtonView.isHit(main.touch.x, main.touch.y)) {
+                main.setScreen(main.settingsScreen);
+            }
+
+        }
+    }
+}
