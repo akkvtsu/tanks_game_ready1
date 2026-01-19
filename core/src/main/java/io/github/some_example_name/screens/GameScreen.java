@@ -78,7 +78,6 @@ public class GameScreen extends ScreenAdapter {
         mazeWalls = new ArrayList<>();
         tankObject = new TankObject(x1 + blockWidth,
             2 * blockHeight, GameSettings.TANK_WIDTH, GameSettings.TANK_HEIGHT, GameResources.TANK_IMG_PATH, this.main.world);
-//        wallObject = new WallObject(GameSettings.SCREEN_WIDTH / 2, 300,GameSettings.WALL_SIZE,GameSettings.WALL_SIZE, GameResources.PICTURE_BLOCK, main.world);
         pauseButton = new ButtonView(600,650,50,50,GameResources.PAUSE_IMG_PATH);
 
 
@@ -115,12 +114,9 @@ public class GameScreen extends ScreenAdapter {
     public void render(float delta) {
         handleInput();
         draw();
-//        createMazeWalls();
         updateTankMovement();
 
         if(gameSession.state == GameState.PLAYING) {
-
-
 
             if (gameSession.getScore() > 200) {
                 gameSession.endGame();
@@ -142,13 +138,6 @@ public class GameScreen extends ScreenAdapter {
 
         tankObject.draw(main.batch);
         for (WallObject walls : mazeWalls) walls.draw(main.batch);
-//        for (BulletObject bullet : bulletArray) bullet.draw(main.batch);
-
-
-
-
-
-
 
         arrowUp.draw(main.batch);
         arrowDown.draw(main.batch);
@@ -156,11 +145,7 @@ public class GameScreen extends ScreenAdapter {
         arrowRight.draw(main.batch);
         whitePoint.draw(main.batch);
         pauseButton.draw(main.batch);
-
         scoreTextView.draw(main.batch);
-
-
-
 
         if ( gameSession.state == PAUSED) {
             fullBlackoutView.draw(main.batch);
@@ -193,10 +178,6 @@ private void createMazeWalls() {
                     main.world
                 );
                 mazeWalls.add(wall);
-
-
-
-
             }
         }
 
@@ -269,7 +250,6 @@ private void createMazeWalls() {
     private void updateTankMovement() {
         if (tankObject != null && gameSession.state == GameState.PLAYING) {
             float speed = 1f; // скорость движения
-//            float targetAngle = 0;
 
 
             if (moveLeft) {
@@ -304,8 +284,6 @@ private void createMazeWalls() {
         blockTexture.dispose();
         backgroundView.dispose();
         pauseButton.dispose();
-
-
         tankObject.dispose();
         arrowRight.dispose();
         arrowLeft.dispose();
