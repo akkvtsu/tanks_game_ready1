@@ -17,12 +17,7 @@ public class Maze {
     public int[][] getField(){
         return maze;
     }
-//    public int getHeight(){
-//        return getHeight(20);
-//    }
-//    public int getWidth(){
-//        return getWidth();
-//    }
+
 public int[][] getMaze() {
     return maze;
 }
@@ -34,10 +29,5 @@ public int[][] getMaze() {
     public int getHeight() {
         return maze.length;
     }
-
-
-//    public int getBlockSize(){
-//        return blockSize;
-//    }
 
 }
