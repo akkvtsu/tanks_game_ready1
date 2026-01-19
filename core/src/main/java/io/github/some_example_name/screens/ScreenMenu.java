@@ -16,7 +16,6 @@ public class ScreenMenu extends ScreenAdapter {
     //classes
     Main main;
     MovingBackgroundView backgroundView;
-
     //texts
     TextView titleView;
     //buttons
@@ -30,7 +29,6 @@ public class ScreenMenu extends ScreenAdapter {
         backgroundView = new MovingBackgroundView(GameResources.BACKGROUND_IMG_PATH );
         titleView = new TextView(main.largeWhiteFont,550,500,"Tanks");
         startButtonView = new ButtonView(420,346,440,70,main.commonBlackFont,GameResources.BUTTON_LONG_BG_IMG_PATH,"START");
-
         settingsButtonView =  new ButtonView(420,251,440,70,main.commonBlackFont,GameResources.BUTTON_LONG_BG_IMG_PATH,"SETTINGS");
         exitButtonView =  new ButtonView(420,156,440,70,main.commonBlackFont,GameResources.BUTTON_LONG_BG_IMG_PATH,"EXIT");
 
@@ -44,7 +42,6 @@ public class ScreenMenu extends ScreenAdapter {
         ScreenUtils.clear(Color.CLEAR);
         main.batch.begin();
         backgroundView.draw(main.batch);
-//        backgroundView.move(); //поменять картинку
         titleView.draw(main.batch);
         startButtonView.draw(main.batch);
         settingsButtonView.draw(main.batch);
