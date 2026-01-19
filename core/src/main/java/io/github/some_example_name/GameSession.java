@@ -36,7 +36,6 @@ public class GameSession {
     }
     public void updateScore() {
         score =  destructedNumber * 100;
-//        (int) (TimeUtils.millis() - sessionStartTime) / 100 +
     }
     public int getScore() {
         return score;
