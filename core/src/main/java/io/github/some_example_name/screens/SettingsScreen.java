@@ -27,7 +27,6 @@ public class SettingsScreen extends ScreenAdapter {
         this.main = main;
         backgroundView = new MovingBackgroundView(GameResources.BACKGROUND_IMG_PATH);
         returnButton = new ButtonView(420,156,440,70,main.commonBlackFont,GameResources.BUTTON_LONG_BG_IMG_PATH,"Return");
-//        titleView = new TextView(main.largeWhiteFont,550,500,"Tanks");
         titleTextView = new TextView(main.largeWhiteFont,550,500,"Settings");
         musicSettingView = new TextView(main.commonBlackFont, 570, 375, "Music: " + "ON");
         soundSettingView = new TextView(main.commonBlackFont, 570, 275, "Sound: " + "ON");
