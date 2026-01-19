@@ -18,14 +18,8 @@ public class TankObject extends GameObject {
     GameScreen gameScreen;
 
 
-
-
-
-
     public TankObject(int x, int y, int width, int height, String texturePath, World world) {
         super(texturePath, x, y, width, height, GameSettings.TANK_BIT, world);
-
-
 
 
     }
@@ -33,16 +27,12 @@ public class TankObject extends GameObject {
     public void moveleft(Vector3 vector3) {
          int leftmoveX = (int) (vector3.x - GameSettings.WALL_SIZE);
 
-
-
     }
 
     boolean moveLeft;
     boolean moveRight;
     boolean moveUp;
     boolean moveDown;
-
-
 
     public boolean needToShoot() {
         if (TimeUtils.millis() - lastShotTime >= GameSettings.SHOOTING_COOL_DOWN) {
@@ -63,9 +53,7 @@ public class TankObject extends GameObject {
 
         super.draw(batch);
     }
-//    public boolean isAlive() {
-//        return livesLeft > 0;
-//    }
+
 public void handleButtons() {
     Vector3 move = new Vector3();
 
@@ -75,7 +63,6 @@ public void handleButtons() {
     if (moveUp) move.y += 40;
     if (moveDown)  move.y -= 40;
     if (Gdx.input.isTouched()) {
-
 
 
         moveUp = gameScreen.arrowUp.isHit(main.touch.x, main.touch.y);
